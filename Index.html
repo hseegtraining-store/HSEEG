@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SafeCore | Risk, Health & Safety Compliance Partner</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* ==========================================================================
+           CSS RESET & BASE VARIABLES
+           ========================================================================== */
+        :root {
+            --primary: #0284c7;         /* Safeti vibrant blue */
+            --primary-dark: #0369a1;
+            --secondary: #0f172a;       /* Deep slate */
+            --accent: #f59e0b;          /* Rating gold / alert */
+            --accent-green: #10b981;    /* Safety green */
+            --bg-light: #f8fafc;
+            --bg-white: #ffffff;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --radius-md: 10px;
+            --radius-lg: 16px;
+            --container: 1200px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        .container {
+            max-width: var(--container);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ==========================================================================
+           TOP BAR & NAVIGATION
+           ========================================================================== */
+        .announcement-bar {
+            background-color: var(--secondary);
+            color: #ffffff;
+            font-size: 0.85rem;
+            text-align: center;
+            padding: 9px 15px;
+            font-weight: 500;
+        }
+
+        .announcement-bar a {
+            color: #38bdf8;
+            text-decoration: underline;
+            margin-left: 6px;
+        }
+
+        header {
+            background: var(--bg-white);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 75px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--secondary);
+        }
+
+        .logo i {
+            color: var(--primary);
+            font-size: 1.6rem;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+            align-items: center;
+        }
+
+        .nav-link {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .nav-link:hover {
+            color: var(--primary);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s ease-in-out;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: #ffffff;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--bg-light);
+            border-color: var(--text-muted);
+        }
+
+        /* ==========================================================================
+           HERO SECTION
+           ========================================================================== */
+        .hero {
+            padding: 80px 0 60px;
+            background: linear-gradient(180deg, #ffffff 0%, #f1f5f9 100%);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #e0f2fe;
+            color: var(--primary-dark);
+            font-size: 0.85rem;
+            font-weight: 700;
+            padding: 6px 14px;
+            border-radius: 50px;
+            margin-bottom: 18px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1.15;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: var(--primary);
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 35px;
+        }
+
+        .hero-metrics {
+            display: flex;
+            gap: 30px;
+            border-top: 1px solid var(--border-color);
+            padding-top: 25px;
+        }
+
+        .metric-item h4 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--secondary);
+        }
+
+        .metric-item p {
+            font-size: 0.85rem;
+            margin: 0;
+        }
+
+        .hero-card-preview {
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .preview-box {
+            background: #f8fafc;
+            border: 2px dashed #cbd5e1;
+            border-radius: var(--radius-md);
+            height: 250px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+        }
+
+        /* ==========================================================================
+           SERVICES / SOLUTIONS
+           ========================================================================== */
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 650px;
+            margin: 0 auto 50px;
+        }
+
+        .section-header span {
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .section-header h2 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--secondary);
+            margin-top: 8px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+        }
+
+        .service-card {
+            background: #ffffff;
+            padding: 30px 25px;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .service-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+            background: #f0f9ff;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-size: 1.25rem;
+            color: var(--secondary);
+            margin-bottom: 10px;
+        }
+
+        .service-card p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+
+        .service-card a {
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 0.95rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* ==========================================================================
+           PRODUCTS & TEMPLATES GRID (Safeti Store Model)
+           ========================================================================== */
+        .products-section {
+            background: #ffffff;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+            gap: 25px;
+        }
+
+        .product-card {
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: box-shadow 0.2s;
+        }
+
+        .product-card:hover {
+            box-shadow: var(--shadow-md);
+        }
+
+        .product-thumb {
+            height: 170px;
+            background: #f1f5f9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: var(--secondary);
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 4px;
+        }
+
+        .product-details {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .rating {
+            color: var(--accent);
+            font-size: 0.85rem;
+            margin-bottom: 8px;
+        }
+
+        .rating span {
+            color: var(--text-muted);
+            font-size: 0.75rem;
+            margin-left: 5px;
+        }
+
+        .product-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 10px;
+        }
+
+        .price-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+            padding-top: 15px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .price {
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: var(--secondary);
+        }
+
+        /* ==========================================================================
+           FOOTER
+           ========================================================================== */
+        footer {
+            background-color: var(--secondary);
+            color: #cbd5e1;
+            padding: 70px 0 30px;
+            font-size: 0.95rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-brand h3 {
+            color: #ffffff;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+        }
+
+        .footer-column h4 {
+            color: #ffffff;
+            font-size: 1.05rem;
+            margin-bottom: 20px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column ul li a:hover {
+            color: #ffffff;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .newsletter-form input {
+            flex-grow: 1;
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #334155;
+            background: #1e293b;
+            color: #ffffff;
+            font-size: 0.9rem;
+        }
+
+        .copyright-bar {
+            border-top: 1px solid #334155;
+            padding-top: 25px;
+            text-align: center;
+            font-size: 0.85rem;
+        }
+
+        /* ==========================================================================
+           RESPONSIVE BREAKPOINTS
+           ========================================================================== */
+        @media (max-width: 992px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .nav-menu {
+                display: none; /* Add mobile drawer script if needed */
+            }
+        }
+
+        @media (max-width: 576px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Notification Bar -->
+    <div class="announcement-bar">
+        <span>💡 Need compliant safety forms? Explore our Free Risk Assessment & Toolbox Kits.</span>
+        <a href="#store">Download Now</a>
+    </div>
+
+    <!-- Main Navigation -->
+    <header>
+        <div class="container navbar">
+            <a href="#" class="logo">
+                <i class="fa-solid fa-shield-halved"></i>
+                <span>SafeCore</span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="#services" class="nav-link">Solutions</a></li>
+                <li><a href="#store" class="nav-link">Templates & Videos</a></li>
+                <li><a href="#training" class="nav-link">On-Demand LMS</a></li>
+                <li><a href="#about" class="nav-link">About Us</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="#login" class="btn btn-outline">Client Portal</a>
+                <a href="#contact" class="btn btn-primary">Free Consultation</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-grid">
+            <div>
+                <div class="hero-badge">
+                    <i class="fa-solid fa-certificate"></i> Compliance & Risk Partners
+                </div>
+                <h1>Empowering Safer Workplaces with <span>Expert HSE Tools</span></h1>
+                <p>Standardized risk assessments, high-definition training video collections, and managed compliance procedures designed for high-risk operations and modern organizations.</p>
+                <div class="hero-buttons">
+                    <a href="#store" class="btn btn-primary"><i class="fa-solid fa-bag-shopping"></i> Browse Products</a>
+                    <a href="#training" class="btn btn-outline"><i class="fa-solid fa-play"></i> Watch Demo Series</a>
+                </div>
+                <div class="hero-metrics">
+                    <div class="metric-item">
+                        <h4>50,000+</h4>
+                        <p>Certificates Issued</p>
+                    </div>
+                    <div class="metric-item">
+                        <h4>4.9 / 5</h4>
+                        <p>Trust Pilot Rating</p>
+                    </div>
+                    <div class="metric-item">
+                        <h4>100%</h4>
+                        <p>Regulatory Compliance</p>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="hero-card-preview">
+                    <div class="preview-box">
+                        <i class="fa-solid fa-circle-play fa-3x" style="color: var(--primary); margin-bottom: 12px;"></i>
+                        <strong>On-Demand HSE Media Kit</strong>
+                        <span>Preview Streaming Modules</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <p style="font-weight: 700; margin: 0;">Workplace Safety Suite</p>
+                            <span style="font-size: 0.8rem; color: var(--accent-green);"><i class="fa-solid fa-check"></i> Instant License Available</span>
+                        </div>
+                        <a href="#store" class="btn btn-primary" style="padding: 8px 14px; font-size: 0.85rem;">Inspect</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services / Pillars -->
+    <section class="section-padding" id="services">
+        <div class="container">
+            <div class="section-header">
+                <span>Core Competencies</span>
+                <h2>How We Protect Your Operations</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon"><i class="fa-solid fa-clipboard-check"></i></div>
+                    <h3>Risk Assessment</h3>
+                    <p>Quantitative and qualitative task-based assessments aligning with international compliance standards.</p>
+                    <a href="#">Learn more <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
+                    <h3>Incident Reporting</h3>
+                    <p>Systematic root cause analysis templates and real-time corrective action tracking frameworks.</p>
+                    <a href="#">Learn more <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fa-solid fa-person-digging"></i></div>
+                    <h3>Construction Safety</h3>
+                    <p>Standard operating procedures for work at height, lifting operations, and hazardous zone management.</p>
+                    <a href="#">Learn more <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                    <h3>LMS Training</h3>
+                    <p>Engaging micro-learning courses, toolbox talk kits, and instant certification for internal staff.</p>
+                    <a href="#">Learn more <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Storefront / Catalog Section -->
+    <section class="section-padding products-section" id="store">
+        <div class="container">
+            <div class="section-header">
+                <span>Featured Digital Products</span>
+                <h2>Ready-To-Deploy Compliance Assets</h2>
+            </div>
+            <div class="product-grid">
+                
+                <!-- Product Card 1 -->
+                <div class="product-card">
+                    <div class="product-thumb">
+                        <span class="product-badge">Top Seller</span>
+                        <i class="fa-solid fa-film fa-3x" style="color: #94a3b8;"></i>
+                    </div>
+                    <div class="product-details">
+                        <div class="rating">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            <span>(28 reviews)</span>
+                        </div>
+                        <h4 class="product-title">Full HSE Video Induction Library</h4>
+                        <div class="price-row">
+                            <span class="price">$495.00</span>
+                            <button class="btn btn-outline" style="padding: 6px 12px; font-size: 0.85rem;">View Assets</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 2 -->
+                <div class="product-card">
+                    <div class="product-thumb">
+                        <span class="product-badge">Kit</span>
+                        <i class="fa-solid fa-file-excel fa-3x" style="color: #94a3b8;"></i>
+                    </div>
+                    <div class="product-details">
+                        <div class="rating">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+                            <span>(16 reviews)</span>
+                        </div>
+                        <h4 class="product-title">Ultimate Risk Assessment Pro Pack</h4>
+                        <div class="price-row">
+                            <span class="price">$85.00</span>
+                            <button class="btn btn-outline" style="padding: 6px 12px; font-size: 0.85rem;">View Assets</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 3 -->
+                <div class="product-card">
+                    <div class="product-thumb">
+                        <span class="product-badge">Video Pack</span>
+                        <i class="fa-solid fa-fire-extinguisher fa-3x" style="color: #94a3b8;"></i>
+                    </div>
+                    <div class="product-details">
+                        <div class="rating">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            <span>(42 reviews)</span>
+                        </div>
+                        <h4 class="product-title">Fire Safety & Evacuation Briefing</h4>
+                        <div class="price-row">
+                            <span class="price">$65.00</span>
+                            <button class="btn btn-outline" style="padding: 6px 12px; font-size: 0.85rem;">View Assets</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 4 -->
+                <div class="product-card">
+                    <div class="product-thumb">
+                        <span class="product-badge">Labels</span>
+                        <i class="fa-solid fa-biohazard fa-3x" style="color: #94a3b8;"></i>
+                    </div>
+                    <div class="product-details">
+                        <div class="rating">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            <span>(11 reviews)</span>
+                        </div>
+                        <h4 class="product-title">GHS Chemical Safety Label Toolkit</h4>
+                        <div class="price-row">
+                            <span class="price">$35.00</span>
+                            <button class="btn btn-outline" style="padding: 6px 12px; font-size: 0.85rem;">View Assets</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <h3>SafeCore</h3>
+                <p>Delivering modern safety culture, standardized HSE toolkits, and interactive learning media across industrial and commercial sectors.</p>
+            </div>
+            <div class="footer-column">
+                <h4>Solutions</h4>
+                <ul>
+                    <li><a href="#">Risk Registers</a></li>
+                    <li><a href="#">Safety Inspections</a></li>
+                    <li><a href="#">Hazard Communication</a></li>
+                    <li><a href="#">Permit to Work</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#">About Safeti Model</a></li>
+                    <li><a href="#">Case Studies</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms & Licensing</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Stay Compliant</h4>
+                <p>Subscribe for free monthly safety bulletins and updated hazard templates.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Enter corporate email" required>
+                    <button class="btn btn-primary" type="submit">Join</button>
+                </form>
+            </div>
+        </div>
+        <div class="copyright-bar">
+            <p>&copy; 2026 SafeCore Compliance Ltd. All rights reserved. Configured for demonstration.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
